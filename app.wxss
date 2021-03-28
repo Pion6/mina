@@ -1,10 +1,24 @@
 /**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+@import "./styles/iconfont.wxss";
+
+view,
+text,
+page,
+swiper,
+swiper-item,
+image,
+navigator{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 主题颜色通过变量来控制 */
+page {
+    --themeColor: #FAFAFA;
+    /* 统一定义字体大小 */
+    font-size: 28rpx;
+}
+image {
+    width: 100%;
+}

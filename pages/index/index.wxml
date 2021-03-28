@@ -1,23 +1,68 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
-      </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<!-- index.wxml -->
+<view class="zulin_index">
+    <!-- 搜索框开始 -->
+    <SearchInput></SearchInput>
+    <!-- 搜索框结束 -->
+    <!-- 轮播图开始 -->
+    <view class="index_swiper">
+        <swiper autoplay indicator-dots circular interval="2000">
+            <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
+                <navigato>
+                    <image src="{{item.image_src}}" mode="widthFix"></image>
+                </navigato>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- 轮播图结束 -->
+    <!-- 分类导航开始 -->
+    <view class="index_cates">
+        <navigator wx:for="{{catesList}}" wx:key="name">
+            <image src="{{item.image_src}}" mode="widthFix"></image>
+        </navigator>
+    </view>
+    <!-- 分类导航结束 -->
+    <!-- 滚动模块开始 -->
+    <view class="header2">热门单品</view>
+    <view style="white-space: nowrap;margin-bottom: 50rpx;">
+        <scroll-view class="mainaxisstroll" scroll-x="true">
+            <view>1</view>
+            <view>2</view>
+            <view>3</view>
+            <view>4</view>
+            <view>5</view>
+            <view>6</view>
+            <view>7</view>
+            <view>8</view>
+        </scroll-view>
+    </view>
+    <!-- 滚动模块结束 -->
+    <!-- 楼层模块开始 -->
+    <view class="header2" style="margin-bottom: 20rpx">今日特惠</view>
+    <view class="index_floor">
+        <view class="floor_group" wx:for="{{floorList}}" wx:for-item="item1" wx:for-index="index1" wx:key="floor_title">
+            <!-- 标题 -->
+            <view class="floor_title">
+                <image src="{{item1.floor_title.image_src}}" mode="widthFix"></image>
+            </view>
+            <view class="floor_list">
+                <navigator src="#"  wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name">
+                    <image src="{{item2.image_src}}" mode="{{index2===0?'widthFix':'scaleToFill'}}"></image>
+                </navigator>
+            </view>
+        </view>
+    </view>
+    <!-- 楼层模块结束 -->
+    <!-- 个性推荐模块开始 -->
+    <view class="header2" style="margin-bottom: 20rpx">为您推荐</view>
+    <view class="per_Rec">
+        <view><navigator src="#">1</navigator></view>
+        <view><navigator src="#">2</navigator></view>
+        <view><navigator src="#">3</navigator></view>
+        <view><navigator src="#">4</navigator></view>
+        <view><navigator src="#">5</navigator></view>
+        <view><navigator src="#">6</navigator></view>
+        <view><navigator src="#">7</navigator></view>
+        <view><navigator src="#">8</navigator></view>
+    </view>
+    <!-- 个性推荐模块结束 -->
 </view>

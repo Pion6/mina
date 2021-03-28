@@ -1,14 +1,48 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/category/index",
+    "pages/goods_list/index",
+    "pages/goods_detail/index",
+    "pages/cart/index",
+    "pages/collect/index",
+    "pages/order/index",
+    "pages/search/index",
+    "pages/user/index",
+    "pages/feedback/index",
+    "pages/login/index",
+    "pages/auth/index",
+    "pages/pay/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "智能共享租赁平台",
     "navigationBarTextStyle":"black"
   },
-  "style": "v2",
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#1296DB",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "icons/home.png",
+      "selectedIconPath": "icons/home0.png"
+    },
+    {
+      "pagePath": "pages/category/index",
+      "text": "分类",
+      "iconPath": "icons/fenlei.png",
+      "selectedIconPath": "icons/fenlei0.png"
+    },
+    {
+      "pagePath": "pages/user/index",
+      "text": "我的",
+      "iconPath": "icons/my.png",
+      "selectedIconPath": "icons/my0.png"
+    }]
+  },
   "sitemapLocation": "sitemap.json"
 }

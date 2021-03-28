@@ -1,6 +1,5 @@
 {
   "usingComponents": {
     "SearchInput": "../../components/SearchInput/SearchInput"
-  },
-  "navigationBarTitleText": "智能共享租赁平台"
+  }
 }
